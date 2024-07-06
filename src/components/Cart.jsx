@@ -49,7 +49,7 @@ export default function Cart() {
                                 <Link to='/shop'><button className='p-2 bg-purple-700 font-semibold rounded-xl  text-white'>Continue Shopping</button></Link>
                             </div>
                             <div className='md:pt-4 pt-2'>
-                                <button className='bg-green-700 p-2 text-white font-semibold text-sm md:text-xl rounded-xl' onClick={() => { window.location.reload(); }}>PROCEED</button>
+                                <button className='bg-green-700 p-2 text-white font-semibold text-sm md:text-xl rounded-xl' onClick={() => { alert('Thanks for shopping') }}>PROCEED</button>
                             </div>
 
                         </div>
