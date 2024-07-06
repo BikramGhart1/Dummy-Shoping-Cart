@@ -5,8 +5,11 @@ import { CartContext } from '../contexts/CartContext.jsx'
 import PopUp from './PopUp.jsx';
 
 export default function Shop() {
+    //state to handle the quantities of items, it makes object with id as attribute and quantity as value
     const [quantities, setQuantities] = useState({});
+
     const [showPopUp, setPopUp] = useState(false);
+
     //Using useContext() hook to consume the prop
     const { allItems, addToCartHandler } = useContext(CartContext);
 
@@ -14,12 +17,12 @@ export default function Shop() {
         //object of quantity and their ids
         setQuantities((prev) => ({ ...prev, [id]: quantity }));
     }
+
     const handleAddToCart = (id) => {
         //if no quantity default value to 0
         const quantity = quantities[id] || 1;
-        // alert(`${quantity} items added to the cart`);
         addToCartHandler(id, quantity);
-        console.log('Add to Cart clicked!');
+
         //reset the quantity
         setQuantities((prev) => ({ ...prev, [id]: 0 }))
         setPopUp(true);
@@ -28,6 +31,8 @@ export default function Shop() {
         }, 6000)
 
     }
+
+    //hide popups
     const hidePopUp = () => {
         setPopUp(false);
     }
@@ -49,6 +54,8 @@ export default function Shop() {
             </div>
             {(allItems.length !== 0) ? (<div className='md:pr-10 pr-2 md:pl-72 flex flex-wrap md:flex-col justify-center pl-2 flex-1 '>
                 <PopUp showPopUp={showPopUp} hidePopUp={hidePopUp} />
+
+
                 <div className='pb-0' id='women'>
                     <p className='font-semibold md:text-2xl text-lg text-center pb-4 w-full '>Women's Clothing</p>
                     <div className='section '>
@@ -71,6 +78,8 @@ export default function Shop() {
                         }
                     </div>
                 </div>
+
+
                 <div className='py-8' id='men'>
                     <p className='font-semibold md:text-2xl text-lg text-center pb-4 w-full py-4'>Men's clothing</p>
                     <div className='section'>
@@ -93,6 +102,8 @@ export default function Shop() {
                         }
                     </div>
                 </div>
+
+
                 <div className='' id='jewellery'>
                     <p className='font-semibold md:text-2xl text-lg text-center pb-4 w-full py-4'>Jewellery</p>
                     <div className='section'>

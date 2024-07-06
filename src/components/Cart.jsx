@@ -2,11 +2,27 @@ import React, { useContext, useState } from 'react'
 import { CartContext } from '../contexts/CartContext'
 import { Link } from 'react-router-dom';
 export default function Cart() {
-    const { cartItems, removeItem } = useContext(CartContext);
+    //consume context
+    const { cartItems, removeItem, incrementQty, decrementQty } = useContext(CartContext);
+
+    //calculates final total price to pay
     const realTotal = cartItems.reduce((sum, item) => sum + (item.qty * item.price), 0);
+
+    //remove from cart callback
     const onRemove = (id) => {
         removeItem(id);
     }
+
+    //increment callback
+    const onIncrese = (id) => {
+        incrementQty(id);
+    }
+
+    //decrement callback
+    const onDecrease = (id) => {
+        decrementQty(id);
+    }
+
     return (
         <div className='flex-grow mt-20 overflow-hidden'>
             <div className='flex justify-center items-center py-5 font-semibold md:text-2xl text-md'>
@@ -29,7 +45,7 @@ export default function Cart() {
                                         </div>
                                         <div className='flex flex-col md:pl-5 pl-1 justify-between w-full' >
                                             <div className=' font-mono md:text-lg text-sm'>Price: ${item.price}</div>
-                                            <div className=''>quantity: {item.qty}</div>
+                                            <div className='py-1'>quantity: <button className='px-2 rounded-sm font-semibold bg-purple-400' onClick={() => { onDecrease(item.id) }}>-</button> {item.qty} <button onClick={() => { onIncrese(item.id) }} className='px-2 rounded-sm font-semibold bg-purple-400'>+</button></div>
 
                                             <div className='font-mono'>Total: ${(item.qty * item.price).toFixed(3)}</div>
 
@@ -49,7 +65,7 @@ export default function Cart() {
                                 <Link to='/shop'><button className='p-2 bg-purple-700 font-semibold rounded-xl  text-white'>Continue Shopping</button></Link>
                             </div>
                             <div className='md:pt-4 pt-2'>
-                                <button className='bg-green-700 p-2 text-white font-semibold text-sm md:text-xl rounded-xl' onClick={() => { window.location.reload(); }}>PROCEED</button>
+                                <button className='bg-green-700 p-2 text-white font-semibold text-sm md:text-xl rounded-xl' onClick={() => { alert('Thanks for shopping') }}>PROCEED</button>
                             </div>
 
                         </div>

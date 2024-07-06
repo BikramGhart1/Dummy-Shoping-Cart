@@ -11,6 +11,7 @@ const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
     const [totalQuantity, setTotalQuantity] = useState(0);
 
+    //fetch data
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -31,6 +32,8 @@ const CartProvider = ({ children }) => {
         }
         fetchData();
     }, [])
+
+    //Add to cart
     const addToCartHandler = (id, quantity) => {
         setCartItems(prevCartItems => {
             const existingItem = prevCartItems.find(item => item.id === id);
@@ -50,13 +53,33 @@ const CartProvider = ({ children }) => {
         const total = totalQuantity + quantity;
         setTotalQuantity(total);
     }
+
+    //remove quantity from cart
     const removeItem = (id) => {
         const filteredItems = cartItems.filter((item) => item.id !== id);
         setCartItems(filteredItems);
     }
+
+    //increase item quantity
+    const incrementQty = (id) => {
+        setCartItems((prevItems) =>
+            prevItems.map((item) =>
+                (item.id === id) ? { ...item, qty: item.qty + 1 } : item
+            )
+        )
+    }
+
+    //decrease item quantity
+    const decrementQty = (id) => {
+        setCartItems((prevItems) =>
+            prevItems.map((item) =>
+                (item.id === id) && item.qty > 0 ? { ...item, qty: item.qty - 1 } : item
+            )
+        )
+    }
     //returning the wrapper of providing the prop to children components
     return (
-        <CartContext.Provider value={{ allItems, addToCartHandler, cartItems, totalQuantity, removeItem }}>
+        <CartContext.Provider value={{ allItems, addToCartHandler, cartItems, totalQuantity, removeItem, incrementQty, decrementQty }}>
             {children}
         </CartContext.Provider>
     );
