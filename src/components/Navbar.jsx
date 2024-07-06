@@ -11,7 +11,7 @@ export default function Navbar() {
             </div>
             <div className='flex flex-row justify-between items-center w-56'>
                 <Link to='shop'><button>Shop</button></Link>
-                <Link to='cart'><button className='relative pr-10'>Cart <em className='not-italic absolute top-0 right-0 -mt-2 mr-6 lg:-mt-4 lg:mr-3 p-1 lg:w-8 w-6 rounded-2xl bg-purple-400 bg-opacity-50 text-xs lg:text-lg'>{totalQuantity}</em> </button></Link>
+                <Link to='cart'><button className='relative pr-10'>Cart</button></Link>
 
 
             </div>
