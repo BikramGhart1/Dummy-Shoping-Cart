@@ -2,7 +2,7 @@
 A multi page e-commerce site 
 
 #Live demo
-
+https://dummy-shopping-cart-ds.netlify.app/
 
 # What I learnt
 1. React Router
