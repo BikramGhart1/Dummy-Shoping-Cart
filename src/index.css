@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+    @apply md:w-80 w-60 md:text-lg text-sm md:mr-8 mr-4 md:p-8 p-4 bg-slate-50 border-b border-b-slate-400 flex flex-col items-center relative mb-5
+}
+
+.section {
+    @apply flex flex-wrap justify-around items-center
+}
+
+.badge {
+    @apply absolute top-2 left-2 bg-purple-300 p-1 rounded-xl md:text-xl text-xs
+}
