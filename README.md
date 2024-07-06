@@ -1,8 +1,15 @@
-# React + Vite
+# Dummy Shopping Cart
+A multi page e-commerce site 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Live demo
+https://dummy-shopping-cart-ds.netlify.app/
 
-Currently, two official plugins are available:
+# What I learnt
+1. React Router
+2. useContext hook
+3. Tailwind css and responsiveness
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#Built with
+1. React Router
+2. Tailwind css
+
